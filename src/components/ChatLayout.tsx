@@ -4,13 +4,34 @@ import { useState } from "react";
 import Sidebar from "./Sidebar";
 import ChatArea from "./ChatArea";
 
-export default function ChatLayout({session}) {
-  const [selectedChat, setSelectedChat] = useState("SF Weather Info");
+export default function ChatLayout({
+  session,
+  initialChats,
+}: {
+  session: any;
+  initialChats: any[];
+}) {
+  const [selectedChat, setSelectedChat] = useState<string | null>(
+    initialChats[0]?.id ?? null
+  );
+
+  const [chats, setChats] = useState(initialChats);
 
   return (
     <div className="flex h-screen bg-white">
-      <Sidebar selectedChat={selectedChat} setSelectedChat={setSelectedChat} session={session}/>
-      <ChatArea session={session} />
+      <Sidebar
+        chats={chats}
+        selectedChat={selectedChat}
+        setSelectedChat={setSelectedChat}
+        session={session}
+        setChats={setChats} // <-- pass setChats here
+      />
+
+      <ChatArea
+        session={session}
+        chatId={selectedChat}
+        setChatId={setSelectedChat}
+      />
     </div>
   );
 }
