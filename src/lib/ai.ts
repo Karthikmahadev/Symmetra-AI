@@ -4,12 +4,8 @@ import { AIResponse } from "@/types/ai";
 
 export async function runAI(userMessage: string): Promise<AIResponse> {
   const lower = userMessage.toLowerCase();
-
-  // ================= WEATHER =================
   if (lower.includes("weather")) {
-    let location = "Chennai"; // fallback if extraction fails
-
-    // Regex to match "weather in <location>" or "weather <location>"
+    let location = "Chennai"; 
     const match = userMessage.match(/weather(?: in)? (.+)/i);
     if (match) location = match[1].trim();
 
@@ -26,7 +22,6 @@ export async function runAI(userMessage: string): Promise<AIResponse> {
     }
   }
 
-  // ================= F1 =================
   if (lower.includes("f1")) {
     try {
       const data = await getF1Matches();
@@ -41,7 +36,6 @@ export async function runAI(userMessage: string): Promise<AIResponse> {
     }
   }
 
-  // ================= STOCK =================
   if (lower.includes("stock")) {
     const symbolMatch = userMessage.match(/stock(?: price)?(?: for)? ([A-Za-z]+)/i);
     const symbol = symbolMatch ? symbolMatch[1].toUpperCase() : null;
@@ -67,7 +61,6 @@ export async function runAI(userMessage: string): Promise<AIResponse> {
     }
   }
 
-  // ================= GEMINI TEXT =================
   try {
     const result = await genAI.models.generateContent({
       model: GEMINI_MODEL,

@@ -18,16 +18,13 @@ export default function LoginPage() {
   
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-4">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-float-delayed" />
       </div>
 
       <div className="relative w-full max-w-md">
-        {/* Main card with glass effect */}
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 md:p-12 transform transition-all duration-500 hover:shadow-3xl">
-          {/* Header */}
           <div className="text-center mb-8 space-y-2">
             <h1 className="text-4xl font-bold text-slate-900 tracking-tight">
               Welcome back
@@ -39,7 +36,6 @@ export default function LoginPage() {
 
         {/* Auth buttons */}
 <div className="space-y-3 mb-6">
-  {/* Google button */}
   <button
     onClick={() => handleAuth("google")}
     disabled={isLoading !== null}
@@ -70,7 +66,6 @@ export default function LoginPage() {
     <span>Continue with Google</span>
   </button>
 
-  {/* GitHub button */}
   <button
     onClick={() => handleAuth("github")}
     disabled={isLoading !== null}
@@ -91,8 +86,6 @@ export default function LoginPage() {
   </button>
 </div>
 
-
-          {/* Terms */}
           <p className="text-xs text-center text-slate-500 leading-relaxed">
             By clicking continue, you agree to our{' '}
             <Link href="/terms" className="text-blue-600 hover:text-blue-700 font-medium underline underline-offset-2">
@@ -106,7 +99,6 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Support link */}
         <div className="text-center mt-6">
           <p className="text-sm text-slate-600">
             Need help?{' '}

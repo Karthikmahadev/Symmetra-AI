@@ -30,7 +30,7 @@ const StockCard: React.FC<StockCardProps> = ({ data }) => {
           maxWidth: 420,
         }}
       >
-        {/* Header band */}
+       
         <div
           style={{
             background: "linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)",
@@ -72,7 +72,6 @@ const StockCard: React.FC<StockCardProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Price block */}
         <div style={{ padding: "20px 24px 24px" }}>
           <p style={{ fontSize: 11, color: "#555", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 6 }}>
             Current Price
@@ -92,7 +91,6 @@ const StockCard: React.FC<StockCardProps> = ({ data }) => {
             <span style={{ fontSize: 13, color: "#555" }}>USD</span>
           </div>
 
-          {/* Decorative divider line */}
           <div
             style={{
               marginTop: 18,

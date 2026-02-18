@@ -8,9 +8,8 @@ const ai = new GoogleGenAI({
 
 async function test() {
   try {
-    // Example: using Gemini 2.5 Flash
     const result = await ai.models.generateContent({
-      model: "models/gemini-2.5-flash", // ✅ replace with a valid model
+      model: "models/gemini-2.5-flash", 
       contents: "Say hello in 1 sentence",
     });
 

@@ -11,8 +11,6 @@ export default function Home() {
       <HeroSection />
       <ToolsSection />
       <Footer />
-
-      {/* <ChatLayout /> */}
     </>
   );
 }

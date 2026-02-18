@@ -1,4 +1,4 @@
-// src/app/api/auth/[...nextauth]/route.ts
+
 import NextAuth, { type AuthOptions } from "next-auth";
 import Google from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
@@ -20,33 +20,22 @@ export const authOptions: AuthOptions = {
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      // authorization: {
-      //   params: {
-      //     prompt: "select_account", // 🔥 Forces account chooser
-      //   },
-      // },
     }),
     GitHubProvider({
     clientId: process.env.GITHUB_CLIENT_ID!,
     clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    // authorization: {
-    //   params: {
-    //     prompt: "login", // 🔥 Forces login screen
-    //   },
-    // },
   }),
   ],
   session: {
-    strategy: "database", // sessions stored in DB
+    strategy: "database", 
   },
   pages: {
-    signIn: "/auth/login", // optional: your custom login page
-    error: "/auth/login", // display errors on login page
+    signIn: "/auth/login",
+    error: "/auth/login", 
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async session({ session, user }) {
-      // Include DB user ID in session
       session.user.id = user.id;
       return session;
     },

@@ -1,39 +1,27 @@
 export async function getWeather(location: string) {
   const apiKey = process.env.OPENWEATHER_API_KEY;
-  console.log("OPENWEATHER_API_KEY:", process.env.OPENWEATHER_API_KEY); // Debug
-  if (!apiKey) throw new Error("OPENWEATHER_API_KEY not set in .env");
+  if (!apiKey) throw new Error("OPENWEATHER_API_KEY not set");
 
-  try {
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-        location
-      )}&appid=${apiKey}&units=metric`
-    );
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+      location
+    )}&appid=${apiKey}&units=metric`
+  );
 
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`Weather fetch failed: ${text}`);
-    }
-
+  if (!res.ok) {
     const data = await res.json();
-
-    return {
-      location: data.name,
-      temperature: data.main.temp,
-      condition: data.weather[0].main,
-      humidity: data.main.humidity,
-      wind: data.wind.speed,
-    };
-  } catch (err) {
-    console.error("Weather API error:", err);
-    return {
-      location,
-      temperature: null,
-      condition: "Unavailable",
-      humidity: null,
-      wind: null,
-    };
+    throw new Error(data.message || "Weather fetch failed");
   }
+
+  const data = await res.json();
+
+  return {
+    location: data.name,
+    temperature: data.main.temp,
+    condition: data.weather[0].main,
+    humidity: data.main.humidity,
+    wind: data.wind.speed,
+  };
 }
 
 export async function getF1Matches() {

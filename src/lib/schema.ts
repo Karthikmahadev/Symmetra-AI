@@ -7,7 +7,6 @@ import {
   uuid,
 } from "drizzle-orm/pg-core";
 
-/* ================= USERS ================= */
 
 export const users = pgTable("users", {
   id: uuid("id").defaultRandom().primaryKey(),
@@ -16,8 +15,6 @@ export const users = pgTable("users", {
   emailVerified: timestamp("emailVerified", { mode: "date" }),
   image: text("image"),
 });
-
-/* ================= ACCOUNTS ================= */
 
 export const accounts = pgTable(
   "accounts",
@@ -44,7 +41,6 @@ export const accounts = pgTable(
   })
 );
 
-/* ================= SESSIONS ================= */
 
 export const sessions = pgTable("sessions", {
   sessionToken: text("sessionToken").primaryKey(),
@@ -56,7 +52,6 @@ export const sessions = pgTable("sessions", {
   expires: timestamp("expires", { mode: "date" }).notNull(),
 });
 
-/* ================= VERIFICATION TOKENS ================= */
 
 export const verificationTokens = pgTable(
   "verificationTokens",
@@ -71,7 +66,6 @@ export const verificationTokens = pgTable(
 );
 
 
-/* ================= CHATS ================= */
 
 export const chats = pgTable("chats", {
   id: uuid("id").defaultRandom().primaryKey(),
@@ -82,7 +76,6 @@ export const chats = pgTable("chats", {
   createdAt: timestamp("createdAt", { mode: "date" }).defaultNow(),
 });
 
-/* ================= MESSAGES ================= */
 
 export const messages = pgTable("messages", {
   id: uuid("id").defaultRandom().primaryKey(),

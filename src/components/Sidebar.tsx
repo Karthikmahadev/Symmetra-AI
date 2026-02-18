@@ -2,6 +2,7 @@
 
 import { Trash2, MessageSquare, Plus } from "lucide-react";
 import { deleteChat } from "@/app/actions/deleteChat";
+import { signOut } from "next-auth/react";
 
 interface SidebarProps {
   chats: any[];
@@ -33,30 +34,26 @@ export default function Sidebar({
     }
   };
 
-  // Get initials from session user
+
   const initials = session?.user?.name
     ? session.user.name.split(" ").map((n: string) => n[0]).join("").toUpperCase().slice(0, 2)
     : session?.user?.email?.[0]?.toUpperCase() ?? "U";
 
   return (
     <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
+
       <aside
         className="flex flex-col"
         style={{
           width: 260,
-          background: "#1a1a1a",
-          fontFamily: "'DM Sans', sans-serif",
+          background: "#f7f7f5",
+          borderRight:"1px solid #ededed",
           flexShrink: 0,
         }}
       >
-        {/* Header */}
         <div
           className="flex items-center gap-2 px-5 py-5"
-          style={{ borderBottom: "1px solid #2e2e2e" }}
+          style={{ borderBottom: "1px solid #f5f5f5" }}
         >
           <div
             className="flex items-center justify-center rounded-lg"
@@ -64,24 +61,23 @@ export default function Sidebar({
               width: 28,
               height: 28,
               background: "linear-gradient(135deg, #fff 60%, #ccc)",
+              borderBottom:"1px solid #ededed",
               flexShrink: 0,
             }}
           >
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#1a1a1a" }}>S</span>
+           <img src="/logo.jpg" className="h-10 md:h-6 rounded" />
           </div>
           <span
             style={{
               fontSize: 15,
               fontWeight: 600,
-              color: "#f5f5f5",
+              color: "black",
               letterSpacing: "-0.01em",
             }}
           >
             Symmetri AI
           </span>
         </div>
-
-        {/* New Chat button */}
         <div className="px-3 pt-4 pb-2">
           <button
             onClick={() => setSelectedChat(null)}
@@ -100,7 +96,6 @@ export default function Sidebar({
           </button>
         </div>
 
-        {/* Chat list */}
         <div className="flex-1 overflow-y-auto px-3 pb-4">
           {chats.length > 0 && (
             <p
@@ -159,33 +154,49 @@ export default function Sidebar({
           </div>
         </div>
 
-        {/* User footer */}
         <div
-          className="px-4 py-4 flex items-center gap-3"
-          style={{ borderTop: "1px solid #2e2e2e" }}
-        >
-          <div
-            className="flex items-center justify-center rounded-full flex-shrink-0"
-            style={{
-              width: 32,
-              height: 32,
-              background: "#333",
-              border: "1.5px solid #444",
-            }}
-          >
-            <span style={{ fontSize: 12, fontWeight: 600, color: "#e0e0e0" }}>{initials}</span>
-          </div>
-          <div className="truncate">
-            <p className="truncate text-sm" style={{ color: "#d0d0d0", fontWeight: 500 }}>
-              {session?.user?.name ?? session?.user?.email ?? "User"}
-            </p>
-            {session?.user?.email && session?.user?.name && (
-              <p className="truncate" style={{ fontSize: 11, color: "#555" }}>
-                {session.user.email}
-              </p>
-            )}
-          </div>
-        </div>
+  className="px-4 py-4 flex items-center gap-3 justify-between"
+  style={{ borderTop: "1px solid #e8e3e3" }}
+>
+  <div
+    className="flex items-center justify-center rounded-full flex-shrink-0"
+    style={{
+      width: 32,
+      height: 32,
+      background: "#333",
+      border: "1.5px solid #444",
+    }}
+  >
+    <span style={{ fontSize: 12, fontWeight: 600, color: "#e0e0e0" }}>{initials}</span>
+  </div>
+  <div className="truncate flex-1">
+    <p className="truncate text-sm" style={{ color: "black", fontWeight: 500 }}>
+      {session?.user?.name ?? session?.user?.email ?? "User"}
+    </p>
+    {session?.user?.email && session?.user?.name && (
+      <p className="truncate" style={{ fontSize: 11, color: "black" }}>
+        {session.user.email}
+      </p>
+    )}
+  </div>
+  <button
+    onClick={() => signOut({ callbackUrl: "/auth/login" })}
+    style={{
+      background: "#e55",
+      color: "#fff",
+      padding: "5px 10px",
+      borderRadius: 6,
+      fontSize: 12,
+      fontWeight: 600,
+      cursor: "pointer",
+    }}
+    onMouseEnter={e => (e.currentTarget.style.background = "#d33")}
+    onMouseLeave={e => (e.currentTarget.style.background = "#e55")}
+  >
+    Logout
+  </button>
+</div>
+
       </aside>
     </>
   );

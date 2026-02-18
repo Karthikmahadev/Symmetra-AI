@@ -15,36 +15,36 @@ export default function ToolsSection() {
       number: "01",
       name: "Weather",
       icon: Cloud,
-      title: "Weather intelligence surface",
+      title: "Live Weather Data via Tool Calling",
       description:
-        "Evaluate how candidates design control systems around live meteorological data, caching, and graceful fallbacks.",
+        "Fetch real-time weather information using OpenWeatherMap. The AI automatically detects location queries and invokes the getWeather tool to return structured weather cards.",
       tags: [
-        "Latency, retries, offline states",
-        "Global coverage + JSON schema",
+        "Tool calling with location parameter",
+        "Structured Weather Card UI output",
       ],
     },
     {
       number: "02",
       name: "Stock",
       icon: ChartCandlestick,
-      title: "Market-aware scenarios",
+      title: "Real-Time Stock Price Retrieval",
       description:
-        "Challenges around live pricing, streaming updates, and error boundaries when financial data is part of the user flow.",
+        "Retrieve live market data using Alpha Vantage. The assistant extracts stock symbols from user prompts and calls getStockPrice to display formatted price cards.",
       tags: [
-        "Streaming & polling patterns",
-        "Equities · Indices · FX (real-time simulation)",
+        "Symbol-based tool invocation",
+        "Financial data formatting & error handling",
       ],
     },
     {
       number: "03",
       name: "F1",
       icon: Car,
-      title: "Telemetry-rich workflows",
+      title: "Next Formula 1 Race Information",
       description:
-        "Challenges candidates with race data, lap notes, and strategy calls to reveal how they structure complex, stateful UI.",
+        "Integrates with the Ergast API to fetch upcoming Formula 1 race details. The assistant calls getF1Matches and renders race information in a dedicated race card.",
       tags: [
-        "Time-series & derived metrics",
-        "Drivers · circuits · standings (fresh via Redis)",
+        "API integration with live race data",
+        "SSR-friendly data rendering",
       ],
     },
   ]
@@ -54,13 +54,14 @@ export default function ToolsSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12">
           <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Instrumented Tools
+            Integrated AI Tools
           </h2>
           <h3 className="text-3xl font-bold text-slate-900">
-            Three production-grade APIs, one coherent assessment.
+            Three real-world APIs powered by AI-driven tool calling.
           </h3>
           <p className="mt-2 text-slate-600">
-            Each tool is observable, rate-limited, and safe for live traffic.
+            Each tool is securely invoked through the Vercel AI SDK and rendered
+            with structured, user-friendly UI components.
           </p>
         </div>
 

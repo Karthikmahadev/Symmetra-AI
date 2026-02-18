@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 SymmetraAI – AI Powered Chat Tool System
 
-## Getting Started
+An advanced AI chat application built with Next.js App Router, powered by Google Gemini, with real-time chat persistence, dynamic sidebar, authentication, and tool integrations.
+✨ Features
+🔐 Authentication
+    User authentication using NextAuth
+    Google OAuth login
+    Session handling
+    Protected dashboard routes
 
-First, run the development server:
+💬 AI Chat System
+    Real-time AI responses using Google Gemini (gemini-1.5-flash-latest)
+    Dynamic chat creation with unique chatId
+    Server Actions for message handling
+    Chat history stored in database
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Persistent conversations per user
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🧠 Auto Chat Title Generation
+    First message automatically generates a short AI-powered title
+    Titles saved in database
+    Displayed dynamically in sidebar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📂 Dynamic Sidebar
+    Sidebar loads chats from database
+    Displays all user conversations
+    Click to switch between chats
+    Real-time updates
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🗄️ Database Integration
+    PostgreSQL database
+    ORM: Drizzle ORM
+    Chat table
+    Messages table
+    User-linked chat system
 
-## Learn More
+🛠 Tool Integrations (Custom AI Tools)
+    🌤 Weather tool
+    🏎 F1 matches tool
+    📈 Stock price tool
 
-To learn more about Next.js, take a look at the following resources:
+Tool routing logic decides whether to:
+    Call external API
+    Or generate AI response
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🎨 UI & Styling
+    Tailwind CSS
+    shadcn/ui components
+    Responsive dashboard layout
+    Modern chat interface
+    Clean message bubbles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🧱 Architecture
+    Next.js App Router
+    Server Actions
+    Modular AI layer (lib/ai.ts)
+    Central Gemini config (lib/gemini.ts)
+    Clean separation of DB, AI, and UI logic
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🛠 Tech Stack
+    Framework: Next.js (App Router)
+    Language: TypeScript
+    Auth: NextAuth
+    Database: PostgreSQL
+    ORM: Drizzle ORM
+    AI: Google Gemini API
+    Styling: Tailwind CSS + shadcn/ui
+    Icons: Lucide React

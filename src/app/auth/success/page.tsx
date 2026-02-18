@@ -25,15 +25,14 @@ export default function SuccessPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 p-4">
-      {/* Animated background elements */}
+    
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-200/30 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute top-20 left-3.5t-10 w-72 h-72 bg-emerald-200/30 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl animate-pulse-slow-delayed" />
       </div>
 
       <div className="relative w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 md:p-12 text-center transform transition-all duration-500">
-          {/* Success icon with animation */}
           <div className="mb-6 flex justify-center">
             <div className="relative">
               <div className="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center animate-scale-in">
@@ -51,13 +50,11 @@ export default function SuccessPage() {
                   />
                 </svg>
               </div>
-              {/* Ripple effect */}
               <div className="absolute inset-0 bg-emerald-400/20 rounded-full animate-ripple" />
               <div className="absolute inset-0 bg-emerald-400/20 rounded-full animate-ripple-delayed" />
             </div>
           </div>
 
-          {/* Header */}
           <h1 className="text-4xl font-bold text-slate-900 mb-3 animate-fade-in-up">
             Login Successful!
           </h1>
@@ -72,7 +69,6 @@ export default function SuccessPage() {
             seconds...
           </p>
 
-          {/* Action buttons */}
           <div className="space-y-3 animate-fade-in-up animation-delay-300">
             <Link
               href="/dashboard"
@@ -88,7 +84,6 @@ export default function SuccessPage() {
             </Link>
           </div>
 
-          {/* Success features */}
           <div className="mt-8 pt-8 border-t border-slate-200 space-y-3 text-left">
             <div className="flex items-start gap-3 animate-fade-in-up animation-delay-400">
               <div className="flex-shrink-0 w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mt-0.5">

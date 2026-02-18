@@ -5,7 +5,6 @@ import { chats } from "@/lib/schema";
 import { genAI, GEMINI_MODEL } from "@/lib/gemini";
 
 export async function createChat(userId: string, firstMessage: string) {
-  // ✅ New SDK format
   const result = await genAI.models.generateContent({
     model: GEMINI_MODEL,
     contents: `Generate a short 4-5 word chat title for this message: ${firstMessage}`,

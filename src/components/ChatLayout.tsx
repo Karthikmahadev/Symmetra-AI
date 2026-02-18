@@ -24,7 +24,7 @@ export default function ChatLayout({
         selectedChat={selectedChat}
         setSelectedChat={setSelectedChat}
         session={session}
-        setChats={setChats} // <-- pass setChats here
+        setChats={setChats} 
       />
 
       <ChatArea

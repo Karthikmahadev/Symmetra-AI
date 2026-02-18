@@ -16,7 +16,6 @@ export default function ErrorPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 via-red-50 to-orange-50 p-4">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-rose-200/30 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-200/30 rounded-full blur-3xl animate-float-delayed" />
@@ -24,7 +23,6 @@ export default function ErrorPage() {
 
       <div className="relative w-full max-w-md">
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 md:p-12 text-center transform transition-all duration-500">
-          {/* Error icon with animation */}
           <div className="mb-6 flex justify-center">
             <div className="relative">
               <div className="w-24 h-24 bg-rose-100 rounded-full flex items-center justify-center animate-scale-in">
@@ -42,12 +40,11 @@ export default function ErrorPage() {
                   />
                 </svg>
               </div>
-              {/* Warning pulse */}
+
               <div className="absolute inset-0 bg-rose-400/20 rounded-full animate-pulse" />
             </div>
           </div>
 
-          {/* Header */}
           <h1 className="text-4xl font-bold text-slate-900 mb-3 animate-fade-in-up">
             Login Failed
           </h1>
@@ -55,7 +52,6 @@ export default function ErrorPage() {
             We couldn't authenticate your account. This might be due to incorrect credentials, network issues, or expired session.
           </p>
 
-          {/* Action buttons */}
           <div className="space-y-3 mb-8 animate-fade-in-up animation-delay-200">
             <button
               onClick={handleRetry}
@@ -84,7 +80,6 @@ export default function ErrorPage() {
             </Link>
           </div>
 
-          {/* Troubleshooting tips */}
           <div className="pt-8 border-t border-slate-200 space-y-4 text-left">
             <h3 className="text-sm font-bold text-slate-900 mb-3 animate-fade-in-up animation-delay-300">
               Troubleshooting Tips:
@@ -117,7 +112,6 @@ export default function ErrorPage() {
             </div>
           </div>
 
-          {/* Support section */}
           <div className="mt-8 p-4 bg-slate-50 rounded-xl animate-fade-in-up animation-delay-700">
             <p className="text-sm text-slate-700">
               Still having issues?{' '}

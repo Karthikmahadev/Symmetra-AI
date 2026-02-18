@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition, useEffect, useRef } from "react";
-import { ArrowUp, Sparkles } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import WeatherCard from "./WeatherCard";
 import F1Card from "./F1Card";
 import StockCard from "./StockCard";
@@ -29,7 +29,6 @@ export default function ChatArea({
       setMessages([]);
       return;
     }
-
     getMessages(chatId).then((data) => {
       const parsed = data.map((msg) => {
         if (msg.role === "assistant") {
@@ -64,15 +63,13 @@ export default function ChatArea({
 
     startTransition(async () => {
       const result = await sendMessage(chatId, session.user.id, userText);
-
       if (!chatId) setChatId(result.chatId);
-
       setMessages((prev) => [...prev, { ...result.ai, role: "assistant" }]);
       setLoading(false);
     });
   };
 
-  const suggestions = ["What's the weather in NYC?", "Show AAPL stock", "Latest F1 standings"];
+  const suggestions = ["What's the weather in chennai?", "Show AAPL stock", "Next F1 race"];
 
   return (
     <div className="flex flex-1 flex-col h-full" style={{ background: "#f7f7f5" }}>
@@ -81,23 +78,10 @@ export default function ChatArea({
 
           {messages.length === 0 && !loading && (
             <div className="flex flex-col items-center justify-center py-24 text-center">
-              {/* Logo mark */}
-              <div
-                className="mb-6 flex items-center justify-center rounded-2xl"
-                style={{
-                  width: 56,
-                  height: 56,
-                  background: "linear-gradient(135deg, #1a1a1a 60%, #3d3d3d)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
-                }}
-              >
-                <Sparkles size={26} color="#fff" />
-              </div>
-
               <h1
                 className="text-4xl font-bold tracking-tight mb-3"
                 style={{
-                  fontFamily: "'DM Serif Display', Georgia, serif",
+                 
                   color: "#1a1a1a",
                   letterSpacing: "-0.03em",
                 }}
@@ -106,12 +90,9 @@ export default function ChatArea({
               </h1>
               <p
                 className="text-base mb-10 max-w-sm"
-                style={{ color: "#888", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}
               >
                 Real-time insights on weather, stocks, F1, and more — powered by AI.
               </p>
-
-              {/* Suggestion chips */}
               <div className="flex flex-wrap gap-2 justify-center">
                 {suggestions.map((s) => (
                   <button
@@ -122,7 +103,6 @@ export default function ChatArea({
                       background: "#fff",
                       border: "1px solid #e0e0e0",
                       color: "#444",
-                      fontFamily: "'DM Sans', sans-serif",
                       boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
                       cursor: "pointer",
                     }}
@@ -145,7 +125,7 @@ export default function ChatArea({
                   }`}
                   style={{
                     maxWidth: "75%",
-                    fontFamily: "'DM Sans', sans-serif",
+                   
                     ...(msg.role === "user"
                       ? {
                           background: "#fff",
@@ -210,8 +190,6 @@ export default function ChatArea({
           <div ref={bottomRef} />
         </div>
       </div>
-
-      {/* Input bar */}
       <div
         className="px-6 py-4"
         style={{
@@ -232,7 +210,6 @@ export default function ChatArea({
               border: "1.5px solid #e0e0e0",
               padding: "14px 52px 14px 18px",
               fontSize: 14,
-              fontFamily: "'DM Sans', sans-serif",
               color: "#1a1a1a",
               background: "#fafafa",
               outline: "none",
@@ -267,13 +244,11 @@ export default function ChatArea({
         </div>
         <p
           className="text-center mt-2"
-          style={{ fontSize: 11, color: "#bbb", fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontSize: 11, color: "#bbb", }}
         >
           Symmetri AI can make mistakes. Verify important info.
         </p>
-      </div>
-
-      
+      </div>      
     </div>
   );
 }
