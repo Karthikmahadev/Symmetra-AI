@@ -24,10 +24,8 @@ const F1Card: React.FC<F1CardProps> = ({ data }) => {
           maxWidth: 420,
         }}
       >
-        {/* Red racing stripe accent */}
+       
         <div style={{ height: 3, background: "linear-gradient(to right, #e10600, #ff4d4d, transparent)" }} />
-
-        {/* Header */}
         <div
           style={{
             padding: "18px 24px 16px",
@@ -137,8 +135,6 @@ const F1Card: React.FC<F1CardProps> = ({ data }) => {
               <p style={{ fontSize: 14, color: "#e0e0e0", fontWeight: 500 }}>{data.country}</p>
             </div>
           </div>
-
-          {/* Footer line */}
           <div style={{ height: 1, background: "linear-gradient(to right, #2e2e2e, transparent)", marginTop: 4 }} />
           <p style={{ fontSize: 11, color: "#444" }}>Live race data · Symmetri AI</p>
         </div>
